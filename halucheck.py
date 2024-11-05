@@ -250,8 +250,3 @@ class HallucinationChecker:
     ) -> bool:
         response = LLMResponse(content=content, original_prompt=prompt, context=context)
         return response.check_hallucination(self.llm_function, strategy)
-
-    def get_details(self) -> Dict[str, Any]:
-        # This method can't work as implemented because it doesn't have access to the validation history
-        # You might want to store the last checked response and return its details
-        return {"error": "Method not implemented correctly"}
