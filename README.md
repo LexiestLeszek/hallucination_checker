@@ -9,16 +9,10 @@ A robust and flexible library for detecting hallucinations in Large Language Mod
 - Customizable LLM function integration
 - Comprehensive validation history and reporting
 
-## Installation
-
-```bash
-pip install llm-hallucination-checker
-```
-
 ## Quick Start
 
 ```python
-from llm_hallucination_detector import HallucinationChecker, ValidationStrategy
+from halucheck import HallucinationChecker, ValidationStrategy
 
 # Define your LLM function
 def my_llm_function(prompt):
@@ -29,9 +23,9 @@ def my_llm_function(prompt):
 checker = HallucinationChecker(my_llm_function)
 
 # Check for hallucinations
-content = "The sky is green."
-prompt = "Describe the sky."
-is_hallucination = checker.check(content, prompt, strategy=ValidationStrategy.STRICT)
+content = "The sky is green." # this is the LLM response
+prompt = "Describe the sky." # this is the prompt you passed to LLM
+is_hallucination = checker.check(content, prompt, strategy=ValidationStrategy.STRICT) # returns True / False
 
 print(f"Contains hallucination: {is_hallucination}")
 ```
